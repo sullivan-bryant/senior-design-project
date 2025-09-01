@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Device Panel</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<!--
+    IDS
+    SERVO ACTUATE_ON
+    SERVO ACTUATE_OFF
+    SERVO MOTION
+        values: LOOP, SWEEP, ONE_SHOT
+    SERVO TIME_DELAY
+    SERVO ANGLE_STEP
+    SERVO START_ANGLE
+    SERVO STOP_ANGLE
+    SERVO PIN
+    SERVO POSITION
+    SERVO MIN_PWM
+    SERVO MAX_PWM
+    SERVO MAX_ANGLE
+    FLEX_2 PIN
+    FLEX_2 FIXED_RESIST
+    FLEX_2 READ
+    FLEX_2 VOLT
+    FLEX_2 RESIST
+    (same for FLEX_3, FLEX_4, FLEX_5)
+-->
+<h1>Device Panel</h1>
+
+<div class="panel-container">
+    <div class="panel servo-actuation">
+        <h2>Servo Actuation</h2>
+        <div class="servo-controls">
+            <div class="control-item">
+                <button id="SERVO ACTUATE_ON">Start Servo</button>
+            </div>
+            <div class="control-item">
+                <button id="SERVO ACTUATE_OFF">Stop Servo</button>
+            </div>
+            <!--
+                Drop-down selector for changing the motion-mode of the servo.
+                  - Loop: Motor moves in one direction at the speed governed by
+                        the angle-step and time-delay from the start-angle to
+                        the stop-angle, then moving back to the starting angle at
+                        full speed.
+                  - Sweep: Motor moves in both directions at speed governed by
+                        angle-step and time-delay.
+                  - One-shot: Motor moves in one direction governed by angle-step
+                        from start to stop, then stopping. The motor
+                        doesn't go back to the starting angle.
+            -->
+            <div class="control-item">
+                <label for="SERVO MOTION">Servo Motion</label><br/>
+                <select id="SERVO MOTION"> <!-- Drop-down selector. Notifications managed by JavaScript. -->
+                    <option value="LOOP">Loop</option> <!-- Looping motion. -->
+                    <option value="SWEEP">Sweep</option> <!-- Sweeping motion. -->
+                    <option value="ONE_SHOT">One-way CW</option> <!-- One-shot motion. -->
+                </select><!-- end SERVO MOTION -->
+            </div> <!-- end 'control-item' (SERVO MOTION) -->
+
+            <div class="control-item"><!-- SERVO TIME DELAY -->
+                <label for="SERVO TIME_DELAY">Time-delay (µs)</label><br/>
+                <input type="number" id="SERVO TIME_DELAY">
+            </div><!-- end TIME DELAY -->
+
+            <div class="control-item"> <!-- SERVO ANGLE_STEP -->
+                <label for="SERVO ANGLE_STEP">Angle-step (º)</label><br/>
+                <input type="number" id="SERVO ANGLE_STEP">
+            </div> <!-- end SERVO ANGLE_STEP -->
+
+            <div class="control-item"> <!-- SERVO START_ANGLE -->
+                <label for="SERVO START_ANGLE">Start angle (º)</label><br/>
+                <input type="number" id="SERVO START_ANGLE">
+            </div> <!-- end SERVO START_ANGLE-->
+
+            <div class="control-item"> <!-- SERVO STOP_ANGLE -->
+                <label for="SERVO STOP_ANGLE">Stop angle (º)</label><br/>
+                <input type="number" id="SERVO STOP_ANGLE">
+            </div> <!-- end SERVO STOP_ANGLE -->
+
+            <div class="control-item"> <!-- SERVO PIN -->
+                <label for="SERVO PIN">Servo pin</label><br/>
+                <select name="PIN" id="SERVO PIN">
+                    <option value="0">D0</option>
+                    <option value="1">D1</option>
+                    <option value="2">D2</option>
+                    <option value="3">D3</option>
+                    <option value="4">D4</option>
+                    <option value="5">D5</option>
+                    <option value="6">D6</option>
+                    <option value="7">D7</option>
+                    <option value="8">D8</option>
+                    <option value="9">D9</option>
+                    <option value="10">D10</option>
+                    <option value="11">D11</option>
+                    <option value="12">D12</option>
+                    <option value="13">D13</option>
+                </select>
+            </div> <!-- end SERVO PIN-->
+            <div class="control-item"> <!--  -->
+                <label for="SERVO POSITION">Set position (º)</label><br/>
+                <input type="number" id="SERVO POSITION">
+            </div>
+            <div class="control-item">
+                <label for="SERVO MIN_PWM">PWM Min (µs)</label><br/>
+                <input type="number" id="SERVO MIN_PWM">
+            </div>
+            <div class="control-item">
+                <label for="SERVO MAX_PWM">PWM Max (µs)</label><br/>
+                <input type="number" id="SERVO MAX_PWM">
+            </div>
+            <div class="control-item">
+                <label for="SERVO MAX_ANGLE">Max angular range (º)</label><br/>
+                <input type="number" id="SERVO MAX_ANGLE">
+            </div>
+        </div>
+    </div>
+    <div class="panel flex-config">
+        <h2>Flex Sensor Configuration</h2>
+        <div class="sensor-grid">
+            <div class="sensor-cell sensor-header"></div>
+            <div class="sensor-cell sensor-header"></div>
+            <div class="sensor-cell sensor-header">Fixed resistor (Ω)</div>
+            <div class="sensor-cell sensor-header">ADC reading (bits)</div>
+            <div class="sensor-cell sensor-header">Voltage (V)</div>
+            <div class="sensor-cell sensor-header">Resistance (Ω)</div>
+            <!-- Sensor 2 Row -->
+            <div class="sensor-cell sensor-label">Sensor 1 pin:</div>
+            <div class="sensor-cell sensor-select">
+                <select id="FLEX_2 PIN">
+                    <option value="false">Not connected</option>
+                    <option value="17">A0</option>
+                    <option value="18">A1</option>
+                    <option value="19">A2</option>
+                    <option value="20">A3</option>
+                    <option value="23">A6</option>
+                    <option value="24">A7</option>
+                </select>
+            </div>
+            <div class="sensor-cell sensor-input">
+                <input type="number" min="0" id="FLEX_2 FIXED_RESIST">
+            </div>
+            <div class="sensor-cell sensor-value" id="FLEX_2 READ">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_2 VOLT">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_2 RESIST">--</div>
+
+            <!-- Sensor 3 Row -->
+            <div class="sensor-cell sensor-label">Sensor 2 pin:</div>
+            <div class="sensor-cell sensor-select">
+                <select id="FLEX_3 PIN">
+                    <option value="false">Not connected</option>
+                    <option value="17">A0</option>
+                    <option value="18">A1</option>
+                    <option value="19">A2</option>
+                    <option value="20">A3</option>
+                    <option value="23">A6</option>
+                    <option value="24">A7</option>
+                </select>
+            </div>
+            <div class="sensor-cell sensor-input">
+                <input type="number" min="0" id="FLEX_3 FIXED_RESIST">
+            </div>
+            <div class="sensor-cell sensor-value" id="FLEX_3 READ">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_3 VOLT">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_3 RESIST">--</div>
+
+            <!-- Sensor 4 Row -->
+            <div class="sensor-cell sensor-label">Sensor 4 pin:</div>
+            <div class="sensor-cell sensor-select">
+                <select id="FLEX_4 PIN">
+                    <option value="false">Not connected</option>
+                    <option value="17">A0</option>
+                    <option value="18">A1</option>
+                    <option value="19">A2</option>
+                    <option value="20">A3</option>
+                    <option value="23">A6</option>
+                    <option value="24">A7</option>
+                </select>
+            </div>
+            <div class="sensor-cell sensor-input">
+                <input type="number" min="0" id="FLEX_4 FIXED_RESIST">
+            </div>
+            <div class="sensor-cell sensor-value" id="FLEX_4 READ">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_4 VOLT">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_4 RESIST">--</div>
+            <!-- Sensor 5 Row -->
+            <div class="sensor-cell sensor-label">Sensor 5 pin:</div>
+            <div class="sensor-cell sensor-select">
+                <select id="FLEX_5 PIN">
+                    <option value="false">Not connected</option>
+                    <option value="17">A0</option>
+                    <option value="18">A1</option>
+                    <option value="19">A2</option>
+                    <option value="20">A3</option>
+                    <option value="23">A6</option>
+                    <option value="24">A7</option>
+                </select>
+            </div>
+            <div class="sensor-cell sensor-input">
+                <input type="number" min="0" id="FLEX_5 FIXED_RESIST">
+            </div>
+            <div class="sensor-cell sensor-value" id="FLEX_5 READ">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_5 VOLT">--</div>
+            <div class="sensor-cell sensor-value" id="FLEX_5 RESIST">--</div>
+        </div>
+    </div>
+    <div class="panel flex-sensor-data"> <!-- Graph panel (canvas) -->
+        <h2 class="panel-title">Flex Sensor Data</h2>
+        <span class="graph-controls">
+            <button id="FLEX START">Start</button>
+            <button id="FLEX STOP">Stop</button>
+        </span> <br />
+        <div class="graph-area">
+            <div class="y-axis-label">ADC Reading (16-bit)</div>
+            <canvas id="flex-sensor-graph" width="500" height="400"></canvas>
+        </div>
+        <div class="x-axis-label">Time (ms)</div>
+    </div> <!-- end flex-sensor-data -->
+</div> <!-- -->
+<!-- -->
+<script src="smoothie.js"></script>
+<!-- -->
+<script src="script.js"></script>
+<!-- -->
+<link rel="stylesheet" href="style.css">
+</body>
+</html>

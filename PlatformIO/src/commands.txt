@@ -1,0 +1,37 @@
+All commands - JSON format
+
+        == SERVO COMMANDS ==
+{
+    dev: SERVO,
+    req: SET,
+    att: POSITION,
+    val: 0
+}
+Request
+{
+    dev: SERVO,
+    req: GET,
+    att: POSITION
+}
+Response
+{
+    dev: SERVO,
+    req: GET,
+    att: POS,
+    val: 0
+}
+Request
+{
+    dev: SERVO,
+    req: SET,
+    att: POSITION,
+    val: 0
+}
+Response
+{
+    dev: SERVO,
+    req: SET,
+    att: POSITION,
+    val: 0,
+    sta: OK
+}

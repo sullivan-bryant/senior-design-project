@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #4a4a4a;
+    font-family: monospace;
+    color: #fff;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+.panel {
+    background-color: #3c3c3c;
+    padding: 15px;
+    border-radius: 5px;
+}
+.panel h2 {
+    margin-bottom: 15px;
+}
+label {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+input, select, button {
+    margin-bottom: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #555;
+    color: #fff;
+    font-family: monospace;
+}
+
+input[type="number"] {
+    width: 90px;
+}
+button {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #666666cc;
+}
+.sensor-grid {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr 1fr 1fr;
+    gap: 10px 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.servo-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px 15px;
+}
+
+.sensor-cell {
+    padding: 5px;
+}
+.sensor-header {
+    font-weight: bold;
+    text-align: center;
+}
+.sensor-label {
+    text-align: right;
+}
+.sensor-select select {
+    padding: 4px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #555;
+    color: #fff;
+}
+.sensor-value {
+    background-color: #555;
+    text-align: center;
+    border: 1px solid #666;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+canvas {
+    background-color: #222;
+    border: 2px solid #555;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 15px;
+}
+.flex-pin {
+    margin-top: 10px;
+}
+.panel-container {
+    display: grid;
+    /* two equal columns... */
+    grid-template-columns: 1fr 1fr;
+    /* ...and two auto-sized rows */
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* left column, top row */
+.servo-actuation {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* left column, bottom row */
+.flex-config {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+/* right column spanning both rows */
+.flex-sensor-data {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+.control-item {
+    align-self: end;
+}
+.graph-container {
+    display: inline-block;
+    margin-left: auto;
+
+}
+.flex-sensor-data {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+}
+
+.flex-sensor-data .panel-title {
+    align-self: flex-start;    /* keep the H2 on the left */
+}
+
+.flex-sensor-data .graph-controls,
+.flex-sensor-data .graph-area,
+.flex-sensor-data .x-axis-label {
+    align-self: flex-end;      /* shove these to the right */
+}
+
+.flex-sensor-data .graph-area {
+    display: flex;             /* lay y-label + canvas side-by-side */
+    align-items: center;
+    gap: 4px;
+}
+
+.y-axis-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+}

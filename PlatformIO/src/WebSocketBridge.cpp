@@ -38,7 +38,7 @@ void WebSocketBridge::setup() {
     delay(1000);    // Wait for the serial port
     sr::debug << "Last reset reason: " << esp_reset_reason() << sr::endl; // debug the last reset reason
     if (!SPIFFS.begin(true)) throw std::runtime_error("Failed to mount SPIFFS"); // throw a runtime error if SPIFFS fails
-    WiFiClass::mode(WIFI_AP); // set the wifi mode to access point
+    WiFiClass::mode(WIFI_MODE_AP); // set the wifi mode to access point
     WiFi.softAP("RemoteExoskeleton", "remoteExoskeleton"); // set the ssid/pass of access point
     server_.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html"); // serve default index.html page
     server_.serveStatic("/script.js", SPIFFS, "/script.js"); // serve the javascript page

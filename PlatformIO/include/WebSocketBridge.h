@@ -9,6 +9,8 @@
  *----------------------------------------------------------------------------------------------------------------------*/
 
 #pragma once
+#include <Arduino.h>
+#include <WiFi.h>
 #include <queue>                // Standard C++ queue library–queueing requests (FIFO)
 #include <ArduinoJson.h>        // JSON parsing library
 #include <ESPAsyncWebServer.h>  // Web server library

@@ -2,7 +2,6 @@
  *   BME:4920 - Team 13 | Remotely Controlled Hand Exoskeleton
  *          Sullivan Bryant, Charley Dunham, Jared Gilliam
  *                  ----------------------
- *                Written by Sullivan Bryant
  *
  *   ====================== script.js ======================
  *   This document manages the JavaScript on the index.html page,

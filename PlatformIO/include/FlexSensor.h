@@ -3,7 +3,6 @@
  *  Team 13 | Remote Hand Exoskeleton
  *  Sullivan Bryant, Charley Dunham, Jared Gilliam
  *
- *  Written by Sullivan Bryant
  *
  *  This class encapsulates functionality associated with flex sensors, providing flexibility to change various
  *  aspects, i.e.,

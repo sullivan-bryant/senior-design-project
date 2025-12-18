@@ -3,7 +3,6 @@
  *    Team 13 | Remote Hand Exoskeleton
  *    Sullivan Bryant, Charley Dunham, Jared Gilliam
  *
- *    Written by Sullivan Bryant
  *
  *    This header file provides overloaded operators for the extern Serial class.
  *    It is overloaded similarly to std::cout << std::endl

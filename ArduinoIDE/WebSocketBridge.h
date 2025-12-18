@@ -3,7 +3,6 @@
  *  Team 13 | Remote Hand Exoskeleton
  *  Sullivan Bryant, Charley Dunham, Jared Gilliam
  *
- *  Written by Sullivan Bryant
  *
  *
  *----------------------------------------------------------------------------------------------------------------------*/

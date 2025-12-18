@@ -1,8 +1,6 @@
 /*  BME:4920 - Biomedical Engineering Senior Design II
  *  Team 13 - Remote Hand Exoskeleton | Final Prototype
  *  Sullivan Bryant, Charley Dunham, Jared Gilliam
- *
- *  Written by Sullivan Bryant
  *  -------------------- -------------------- --------------------
  *                        WebSocketBridge.cpp
  *  Class for bridging connection between arduino and client.

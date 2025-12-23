@@ -39,13 +39,9 @@ board_build.flash_mode = dio
 #
 To upload via command pallete:
 
-Windows: 
- 1. `Ctrl+Shift+P`
+ 1. `Ctrl+Shift+P` (or `Cmd+Shift+P`)
  2. Type and select: __PlatformIO: Upload File System Image__
-
-Mac:
- 1. `Cmd+Shift+P`
- 2. Type and select: __PlatformIO: Upload Filesystem Image__
+    
 #
 To upload via terminal, run:
 ```bash

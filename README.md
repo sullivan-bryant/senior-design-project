@@ -43,7 +43,7 @@ Windows:
  1. `Ctrl+Shift+P`
  2. Type and select: __PlatformIO: Upload File System Image__
 
-Unix:
+Mac:
  1. `Cmd+Shift+P`
  2. Type and select: __PlatformIO: Upload Filesystem Image__
 #
